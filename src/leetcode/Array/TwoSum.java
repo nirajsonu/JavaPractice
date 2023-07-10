@@ -10,6 +10,7 @@ public class TwoSum {
         int target=9;
         TwoSum twoSum=new TwoSum();
         twoSum.twoSum(x,target);
+        System.out.println("checking...");
     }
 
     public int[] twoSum(int[] nums, int target) {
