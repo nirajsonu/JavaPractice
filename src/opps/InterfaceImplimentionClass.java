@@ -5,6 +5,9 @@ public class InterfaceImplimentionClass implements MyInteface {
         InterfaceImplimentionClass interfaceImplimentionClass=new InterfaceImplimentionClass();
         interfaceImplimentionClass.m1();
         interfaceImplimentionClass.m2();
+        int x1 = interfaceImplimentionClass.x;
+        System.out.println(x1);
+
     }
 
     @Override

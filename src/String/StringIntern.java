@@ -10,5 +10,8 @@ public class StringIntern {
         System.out.println(s==s3);
         System.out.println(s==s4);
 
+
+
+
     }
 }

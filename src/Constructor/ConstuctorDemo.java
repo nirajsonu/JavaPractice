@@ -5,13 +5,14 @@ public class ConstuctorDemo {
     private String city;
 
 
+    //Parametrized Constructor
     ConstuctorDemo(String name,String city){
         this.name=name;
         this.city=city;
     }
 
     {
-        System.out.println("Before the Constuctor this will run...");
+        System.out.println("Before the Constructor this will run...");
     }
 
     public  ConstuctorDemo(){

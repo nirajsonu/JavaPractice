@@ -2,10 +2,20 @@ package opps;
 
 public class overRidding implements MyInteface{
 
+    static int x=10;
     public static void main(String ...a){
         overRidding overloading=new overRidding();
         overloading.m1();
         overloading.m2();
+        Runnable m3 = MyInteface::m3;
+
+        m3.run();
+      //  System.out.println(overloading);
+        overRidding.m3();
+    }
+
+    static void m3(){
+        System.out.println("Parent static.."+x);
     }
 
     @Override

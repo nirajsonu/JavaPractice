@@ -25,25 +25,115 @@ public class ArraysExamples {
        // leanearSearchWithFrequency();
       //  checkDuplicateElementOrNot();
 
-        evenOddElements();
-        bubbleSort();
+       // evenOddElements();
+       // bubbleSort();
+
+        int[] x ={20,50,30,40};
+        int[] y ={20,5,70,80};
+
+        // Arrays class it is a utility class that would be helpful to sorting,merging,copy the elements of the arrays
+        int arr[]=new int[10];
+        arr[0]=1;
+        arr[1]=10;
+        arr[2]=3;
+        arr[4]=5;
+        arr[5]=11;
+        System.out.println(arr.length);
+
+        //Copy Array with size
+        int x1[]= Arrays.copyOf(arr, 12);
+        x1[11]=22;
+
+        //to convert Arrays to the string
+        System.out.println(Arrays.toString(arr));
+
+        //to sort elements
+        Arrays.sort(arr);
+        for(int i:arr){
+            System.out.print(i);
+        }
+
+        //to sort by comparator
+        /*Arrays.sort(arr, new Comparator<>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        });*/
+
+        //binarySearch
+        System.out.println("");
+        Arrays.sort(arr);
+        System.out.println("BinarySerch "+Arrays.binarySearch(arr,10));
+
+
+        //arrays to set/list.....
+        Set<Integer> hashSet=new HashSet<>();
+        for(Integer o:arr){
+            hashSet.add(o);
+        }
+        System.out.println(hashSet);
+        System.out.println(hashSet.getClass().getName());
+
+        List<Object> ArrayList=new ArrayList<>();
+        for(Object o:arr){
+            ArrayList.add(o);
+        }
+        System.out.println(ArrayList);
+        System.out.println(ArrayList.getClass().getName());
+
+        int []newArr=new int[2];
+        newArr[0]=100;
+        newArr[1]=101;
+
+        Integer maxValue=Integer.MAX_VALUE;
+        Integer minValue=Integer.MIN_VALUE;
+
+        checkDuplicateElementOrNot();
+        interSectionOfBothArrays(x,y);
+        uniounOfBothArrays(x,y);
+    }
+
+
+    private static void uniounOfBothArrays(int[] x, int[] y) {
+        HashSet<Integer> hashSet=new HashSet<>();
+        for(int i:x){
+            hashSet.add(i);
+        }
+        for(int i:y){
+            hashSet.add(i);
+        }
+        System.out.println(hashSet);
+
+    }
+
+    private static void interSectionOfBothArrays(int[] arr1, int[] arr2) {
+        HashSet<Integer> hashSet=new HashSet<>();
+        for (int j : arr1) {
+            hashSet.add(j);
+        }
+        for (int j : arr2) {
+            if (hashSet.contains(j)) {
+                System.out.println(j);
+            }
+
+        }
 
     }
 
     private static void evenOddElements(){
-        int arrayofElements[]={10,20,30,45,50};
-        for (int i=0;i<arrayofElements.length;i++){
-            if(arrayofElements[i]%2==0){
-                System.out.println("even elements -> "+arrayofElements[i]);
-            }
-            else {
-                System.out.println("Odd elemments -> "+arrayofElements[i]);
+        int[] arrayofElements ={10,20,30,45,50};
+        for (int arrayofElement : arrayofElements) {
+            if (arrayofElement % 2 == 0) {
+                System.out.println("even elements -> " + arrayofElement);
+            } else {
+                System.out.println("Odd elemments -> " + arrayofElement);
             }
         }
     }
 
     private static void leanearSearchWithFrequency() {
-        int arr[]={10,12,13,45,67,89,22,22};
+        int[] arr ={10,12,13,45,67,89,22,22};
         int elementToSerch=22;
         int count=0;
         for(int i=0;i<arr.length;i++){
@@ -56,7 +146,7 @@ public class ArraysExamples {
     }
 
     private static void checkDuplicateElementOrNot() {
-        int arr1[]={10,15,20,25,30,35,10,15};
+        int[] arr1 ={10,15,20,25,30,35,10,15};
         for(int i=0;i<arr1.length;i++){
             for(int j=0;j<i;j++){
                 if(arr1[i]==arr1[j]){
@@ -80,15 +170,15 @@ public class ArraysExamples {
             arr1[i]=scanner.nextInt();
         }
         System.out.println("The sum of the elements of the array");
-        for(int i=0;i<arr1.length;i++){
-            sum=sum+arr1[i];
+        for (int j : arr1) {
+            sum = sum + j;
         }
         System.out.println(sum);
     }
 
     private static void copyElementsOfTheArray() {
-        int arr1[]=new int[3];
-        int arr2[]=new int[3];
+        int[] arr1 =new int[3];
+        int[] arr2 =new int[3];
         System.out.println("Enter the element of 1st array elements");
         Scanner in=new Scanner(System.in);
         for(int i=0;i<arr1.length;i++){

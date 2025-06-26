@@ -1,0 +1,46 @@
+Hibernate is implementation class of JPA(Java persistence API)
+Hibernate annotations
+--------------------------
+@Entity --> for making entity
+@Column --> for making column name is db
+@Table --> for making table name is db
+@Join column --> for joining the table
+@MappedBy --> for making relationship between filed
+@Id --> for making primary key
+@OneToOne -->
+@ManyToMany-->
+@ManyToOne -->
+@ManyToMany -->
+@Transactional-->
+
+CrudRepository vs JPARepository?
+Crud --> it has only crud methods.
+JPA -> crud + sorting and seraching.
+
+
+
+Q) connection pooling in Springboot or hibernate?
+
+
+Q)JOIN FETCH in hibernate (N+1) problem?
+Ans: make a join
+
+Q) Save() and Persist()?
+Ans:
+
+Q) Session and SessionFactory?
+Ans: interfaces in hibernate first we create session than with this object make session factory
+
+Q) @Query annotation ?
+Ans: HQL query and native query = true;
+
+Q) criteria query?
+Ans: used Criteria API used table developer format not update or delete only used to fetch data.
+
+Q)indexes in jpa?
+Ans :
+
+Q) 2 level cache in hibernate?
+Ans :
+
+Q)DataAccessException?

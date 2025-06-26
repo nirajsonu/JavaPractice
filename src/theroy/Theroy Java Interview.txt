@@ -1,0 +1,210 @@
+Q)Final vs. Finally vs Finalize?
+Ans: Final --> it is used for variable value non-changeable also class is final so not be able to extend base class.
+Final and abstract illegal combinations.
+Finally --> Used for the cleanup code in exception handling always executes only not execute system.exit(0).
+Finalize --> it is used to clean up code call garbage collector.
+
+Q) String vs. StringBuilder vs. String-buffer?
+Ans: String --> Immutable non-modifiable data structure.
+StringBuilder --> non-Immutable non synchronized (at a time many threads can use)
+StringBuffer --> non-Immutable synchronized (at a time one thread can use)
+
+Q) Internal working of hashmap?
+Ans: 4 parts current address next address key value
+Hashing Function, Bucket Array, hash collisions, load factor.
+
+Q) java 8 enhancements/features?
+Ans: Lambda Expressions --> no name no return type function that we replace is functional interface.
+
+
+Functional interface (Those interfaces which have one abstract method only) @FunctionalInterface
+---------------------------
+Optional--> class which has one abstract method get() used to handle null values. isPresent() ,ofNullable(),isEmpty
+Predicate ---> takes an argument and rerun boolean test()
+Function ---> takes an argument and return any primate. apply()
+Consumer ---> takes an argument and no return anything accept()
+Suppler ---> takes no argument and return a value get()
+
+For two arguments
+---------------------
+BiPredicate
+BiFunction
+BiConsumer
+BiSuppiler
+---------------------------
+
+
+
+Stream API --> it is used to process collections, strings,arrays,IntStream
+-------------------
+Terminal operators
+--------------------------
+forEach -->similar to for loop for each element.
+collect --> for collect toList, toMap, toMap.
+reduce ---> takes 2 element and return one element.
+toArray --> to convert stream to Array.
+
+short circuit operator
+-------------------------
+allMatch --> just like regex all match case every element match.
+anyMatch --> one match elements.
+noneMatch --> non-match elements.
+findFirst ---> find a first element of the stream.
+findAny ----> find any element.
+
+
+max ---> find max element of the stream.
+min ----> find a min element of the stream.
+
+Intermediate operators
+----------------------------
+filter --> it accept a predicate for filter data from stream.
+map ---> for perform operation each element.
+flatMap ---> list of list stream for flatten the operation stream of streams.
+district ---> to get non-duplicated elements. order remains the same.
+sorted ---> for sorting operations.
+peek ----> debugging purpose.
+limit ----> similar to sql
+skip -----> skip elements.
+
+
+Downstream collectors.
+PartitionBy --> it is used to partition the value to two parts based on predicate.   Collectors.PartitionBy()
+Counting --> Collectors.counting()   to count
+SummarizingInt --> Collectors.sumSummarizingInt()   --> IntSummaryStatistics. to use sum,avg etc.
+mapping --> Collectors.mapping()  -->
+joining --> Collectors.joining()  -->
+groupingBY --> Collectors.groupBy()  --> it will return a map.
+filtering --> terminal operator
+collectingAndThen -->
+toMap -->
+toConcurrentMap -->
+reducing -->
+faltMapping -->
+Collectors.teeing() -->
+
+
+Default Methods -->
+Method Reference -->
+
+New Date time API
+--------------------
+LocalDate,LocalDateTime,DateTimeFormatter, ZonedDateTime
+
+
+Meta Space --> meta-space replace prem gen space
+parellelStream().
+
+Q)How to make singleton class
+Ans: Only one object for one class whole application override clone method and return null
+
+Q) How many ways to create a thread?
+And two ways 1)Extending the thread class
+2)Implementation the Runnable interface.
+the best way is Implementation runnable interface because you can extend another class.
+
+Q)Interface vs Abstract class?
+Ans: Interface -->100% abstract implements
+Abstract class -->Abstract or non-Abstract methods. extends
+
+Q) How to make immutable class
+And use private constructor, only getter method,declare as final so no inheritance, make all fields final and private.
+Example : String,Wrapper class,LocalDate,LocalTime,Instant.
+
+Q)What Synchronize method and synchronize block?
+Ans: Synchronize method --> used to allow one thread can run one time
+public static synchronized void staticMethod() {
+    // Critical section
+}
+synchronize block --> not block all the method code partially block and lock the object object means any class.clas
+ synchronized (ClassName.class) {
+        // Critical section
+    }
+
+Q)Overloading vs Overriding?
+Ans:Overloading --> which same signature but different parameters compile time polymorphism.
+Overriding --> which same signature and same parameters.
+
+Q)OOPs concepts 4 pillers?
+object-oriented programming language.
+Ans: Inheritance: parent class relationship ()
+Abstraction:hiding essential information to end user. (Abstract class and interface)
+Polymorphism: many forms overriding and overloading date types mm/dd/yyyy yyyy/dd/mm
+Encapsulation: warping and putting data in a single unit. private,public,getter and setters
+Class and Object
+Coupling
+Cohesion
+
+
+Q)Access modifiers type and usage and differences?
+Ans:public: Anywhere access in the package and outside the package
+private: only inside the class.
+protected: Anywhere in package and its kids
+abstract
+
+Q) try with resources?
+Ans:it is come in java 7 try with not finally block
+
+Q) How much IOC container ?
+Ans: Bean Factory : lazy loading only xml
+Application context: Eager xml and annotation
+
+Q) throw keyword and throws?
+Ans: throw used to throw the exception
+throws used to handle exception redirect to immediate parent.
+
+Q) why is java not a fully object-oriented programming language?
+Ans: because it supports primitive data
+
+Q) JDK,JRE,JVM?
+Ans: JDK -->Tools
+JVM --> platform dependent
+JRE --> Java run time Environment create a environment to run java file it is used to .class file to .exe file.
+
+Q)Factory vs singleton?
+Ans: Factory we give the name of the class and it will create object
+Singleton: that is used to create object that will be share whole application.
+construct private and public method to create object
+Builder pattern : build() method. class and static Builder inner class
+
+Q)Transient keyword?
+Ans: to avoid serialization.
+
+Q)Serialization and Externalization?
+Ans: Externalization is customizing Serialization.
+
+Q) storage in java?
+Ans: Stack will store methods and primitives
+Heap: Objects
+String pool Area -->
+Native Area.
+PC register
+Static area
+
+Q)HashMap vs. HashTable?
+Ans: Hashmap --> performance is good one null key and multiple null values.
+
+Q)What is Memory leak how to avoid it?
+Ans: Use try with resources.
+Avoid static references
+use weak references
+graceful error handling
+use profiling tools --> jprofiler
+optimize jvm parameters.
+
+Q) Reflection and internalization?
+Ans:
+
+
+Q) SSL / TLS application in java?
+
+Java LTS (Long-term support)
+
+Q) Sealed class,records, patten matching in switch,virtual thread,scope values.
+
+Q) Atomic Variable?
+
+
+
+
+

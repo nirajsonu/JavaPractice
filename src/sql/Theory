@@ -1,0 +1,369 @@
+RDMS
+------
+Relational database management system
+1)Insert/update/delete information based on conditions
+2)Accept sql queries
+3)security
+4)transactional control
+5)manage data sharing/access rules.
+
+SQL (common language for all RDMS)
+------------------------------------
+Structure Query language
+
+username and password
+schema
+DDL command(Data definition name)
+show databases
+use database_name
+
+Constants in SQL
+-----------------------
+primary_key is a constraint non duplicate only one in column
+not null is a constraint for not allowed null it cannot be blank
+unique constraint ( non duplicates)
+foreign key --> null or duplicate allowed 
+---------------------------------------------------------------------------
+
+
+
+create table table_name  (30 charters) syntax
+---------------------------------------------------
+create table student(id int primary key,name varchar(20) not null,address varchar(20))
+UNIQUE KEY `name_UNIQUE` (`name`)
+CREATE TABLE `student` (
+  `id` int NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `marks` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+)
+insert into table_name values() syntax
+-------------------------------------------------------------
+insert into student values(1,'Prince','Ranchi')
+insert into student(id,name) values(4,'Shyam')
+---------------------------------------------------------
+
+select command  (select * from table_name)
+------------------------
+select * from student or select id,name from student
+select * from student where name='Sonu'
+select * from student where name='Sonu' and marks=100
+select * from student where id is null
+select * from student where id is not null
+select * from student where id=1 or id=2
+select * from student order by id desc     (order by column_name asc|desc)
+select * from student order by name asc
+select * from student order by marks,name asc
+select * from student where not id=2
+select * from product where stock % 2 =0
+-----------------------------------------------------------
+
+delete command delete from table_name where condition column_name='1' where is optional
+----------------------
+delete from student where id=4
+---------------------------------
+
+update command update table_name set column_name='value'
+-----------------------------------------------------------------
+update student set marks=120 where id=3
+update student set name='Raju' where id=3
+update student set name='Sonu',marks=100 where id=3;
+-----------------------------------------------------------------------
+
+like operator (% any length)  ( _ one length)  it is case sensitive
+--------------------------------------------------
+select * from student where name like 'N%'
+select * from student where name like '_e%'
+select * from student where name like '%e%'
+--------------------------------------------------
+
+in operator (to make a list) (possible value)
+--------------------------------
+select * from student where name in('Prince','Neeraj','Sonu')
+select * from student where name ='Prince' or name='Neeraj' or name='Sonu'
+------------------------------------------------------------------
+
+not in(non possible value)
+-----------
+select * from students where name not in('Bob')
+----------------------
+
+between operator (range of records) it will used in date also
+-----------------------
+select * from student where marks between 70 and 80
+select * from student where marks<=80 and marks>=70
+-------------------------------
+
+order by
+------------
+select * from student order by name
+select * from student order by marks desc
+select * from student order by marks,name desc
+-------------------------------------------------
+
+rename
+--------------------
+rename table student to students
+----------------------------------------
+
+drop
+-----------------
+drop table table_name
+drop table students
+drop database if exists compnay
+----------------------------
+
+Alter table (Add new column)
+-------------
+alter table students add column address varchar(20)
+------------------------------------------------------
+
+Modify table (modify existing column)
+---------------
+alter table students modify address varchar(100)
+-----------------------------------------------------
+
+change column (change column value)
+--------------------
+alter table students change address roll_number integer
+-----------------------------
+
+drop column
+---------------
+ALTER TABLE students DROP COLUMN roll_number;
+------------------------------------------------
+
+
+Referential integrity
+---------------------------
+child and master table relationship
+master table primary_key
+child table reference
+child table
+---------------
+create table address1(id integer references students,address varchar(20))
+
+SET SQL_SAFE_UPDATES = 0;
+
+
+Delete on cascade
+Update on cascade
+---------------------
+CREATE TABLE address1 (
+    id INTEGER REFERENCES students(id) ON DELETE CASCADE,
+    address VARCHAR(20)
+);
+
+
+parent table
+----------------
+create table student(id primary key,name varchar(20),address varchar());
+-----------------------------------------------------------------------------
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50)
+);
+---------------------------------------------------------
+
+columns alias
+-----------------
+select name as student_name from students
+select name "student_name" from students
+select id+1 from students
+-------------------------------------------------
+
+table alias
+-----------------
+SELECT name, address FROM students as s,address1 as a where s.id=a.id
+SELECT name, address FROM students s,address1 a where s.id=a.id
+SELECT s.name, a.address FROM students s JOIN address1 a ON s.id = a.id;
+-----------------------------------------------------------------------------
+
+group by (grouping)  aggregate function(sum(),min(),max(),count())  + having Clause
+------------
+syntax
+----------
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+HAVING;
+select category from Product group by category
+select category,count(*) from Product group by category
+select category,count(name) from Product group by category
+select category,sum(price) from Product group by category
+select category,min(price) from Product group by category
+select category,max(price) from Product group by category
+select category,max(price) from Product group by category order by category
+select category,sum(price) from Product group by category having sum(price) >400
+-----------------------------------------------------------------------------------
+
+GROUP_CONCAT
+-----------------
+SELECT name, GROUP_CONCAT(category SEPARATOR ', ') AS categories
+FROM product
+GROUP BY name;
+-------------------------
+
+Aggregate functions
+avg()
+-----------
+select avg(price) from product
+SELECT price, (SELECT AVG(price) FROM product) AS average_price
+FROM product;
+count()
+---------
+select count(stock) from product where category='Furniture'
+select count(distinct price) from Product
+--------------------------------------------------------------
+
+max()
+------
+select max(price) from product
+----------------------------------
+min()
+-------
+select min(price) from product
+
+sum()
+------
+select sum(price) from product
+
+stddev()
+-----------
+select stddev(price) from product
+-------------------------------------
+variance()
+----------------
+select variance(price) from product
+
+character functions
+-----------------------
+lower case LCASE()
+------------------------
+SELECT LCASE(name) AS capitalized_name
+FROM product;
+
+upper case UCASE
+------------
+SELECT UCASE(name) AS capitalized_name
+FROM product;
+
+SUBSTR
+-------------
+SELECT SUBSTR(name, 1, 4) AS extracted_name
+FROM product;
+
+concat
+---------
+SELECT concat(name, ' Neeraj') AS extracted_name
+FROM product;
+
+length
+---------
+SELECT length(name) AS extracted_name
+FROM product;
+
+ltrim
+----------
+SELECT ltrim(name) AS extracted_name
+FROM product;
+
+sub query or nested query when condition do not know
+-------------
+select * from product where id = (select max(id) from product)
+select * from product where price in (select price from product where price>10000)
+SELECT * FROM students WHERE id = (SELECT id FROM product ORDER BY stock LIMIT 1);
+
+case
+-------
+UPDATE Salary
+SET sex = (CASE WHEN sex='f' THEN 'm' ELSE 'f' END);
+
+SELECT
+    CASE
+        WHEN name = 'Laptop' THEN 'Ram'
+        ELSE name
+    END AS modified_name
+FROM product;
+
+---------------------
+
+inner join (matching value in both tables)
+---------------------------------------------
+intersection of A and B
+
+
+Left join
+--------------
+Return all records from left table and matched records from right table and when not found match it will return null
+------------------------
+
+Right join
+---------------
+Return all records from right table and matched record from left table and when not found match it will return null
+-----------------------------------
+
+Full join
+----------------
+left join+right join + union (unique value)
+------------------------------
+left exclusive join and right exclusive join
+overlapping --> not null
+non overlapping --> null
+
+self join
+--------------
+same table join
+----------------------
+
+union remove duplicates
+---------
+select name from product union select name from students
+-------------------------------------------------------------
+
+union all
+-------------
+select name from product union all select name from students
+---------------------------------------------------------------
+
+limit
+------
+select * from product stock limit 4
+select * from product order by stock limit 1
+---------------------------------------
+
+views
+-------
+virtual tables
+create view view1 as select name,price from product
+select * from view1
+----------------------------------------------------------------
+offset
+------------
+select * from product limit 3 offset 1 (offset remove 1 position)
+-----------------------------------------------------------------------
+EXISTS  --> to check data is present or not
+-------------------------------------------------
+DB performance
+-----------------
+1)Analyse and explain query plan
+5)use partitions
+
+Query optimization
+----------------------
+2)use union all instead of union
+3)use project instead of *
+4)use partial views
+---------------------------
+
+
+
+
+
+
+
+
+

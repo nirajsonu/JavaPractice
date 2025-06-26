@@ -1,6 +1,10 @@
 package opps;
 
 public abstract class AbstractClassExample {
+
+    AbstractClassExample(){
+
+    }
     public abstract void m1();
     public abstract void m2();
     public static void m3()
@@ -45,3 +49,5 @@ public abstract class AbstractClassExample {
     }
 
 }
+
+

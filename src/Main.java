@@ -1,56 +1,32 @@
-import java.util.Arrays;
-
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        int arr[] = new int[3];
-        arr[0]=10;
-        arr[1]=20;
-        arr[2]=30;
-        System.out.println(arr.getClass().getName());
-        System.out.println();
-        for(int i=0;i<arr.length;i++){
-            System.out.println(i+arr[i]);
-        }
+        String text = "swiss";  // Input string
 
-        String [] myString={"A","AA","AAA"};
-        System.out.println(myString[0].length());
+        // Step 1: Count the occurrences of each character
+        Map<Character, Long> frequencyMap = text.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
+        // Step 2: Find the first non-repeating character
+        Character firstNonRepeating = text.chars()
+                .mapToObj(c -> (char) c)
+                .filter(c -> frequencyMap.get(c) == 1)  // Filter for characters that appear only once
+                .findFirst()  // Find the first match
+                .orElse(null);  // Default to null if no non-repeating character exists
 
-        sumMethod(new int[]{10,20,30});
+        // Step 3: Find the last non-repeating character
+        Character lastNonRepeating = new StringBuilder(text).reverse().chars()  // Reverse the string and stream its characters
+                .mapToObj(c -> (char) c)
+                .filter(c -> frequencyMap.get(c) == 1)  // Filter for non-repeating characters
+                .findFirst()  // Find the first match (which is last in original string)
+                .orElse(null);  // Default to null if no non-repeating character exists
 
-
-        Object[] a=new Object[10];
-        a[0]=new Object();
-        a[1]=new String("jello");
-        a[2]= 10;
-
-        Number n= 10;
-
-
-       ClassTypeArray classTypeArray[]=new ClassTypeArray[10];
-       classTypeArray[0]= new ClassTypeArray("Neeraj");
-       System.out.println(Arrays.toString(classTypeArray));
-
-    }
-
-    private static void sumMethod(int[] ints) {
-        for(int x:ints){
-            System.out.println(x);
-        }
-    }
-
-    static class ClassTypeArray{
-        String name;
-        ClassTypeArray(String name){
-            this.name=name;
-        }
-
-        @Override
-        public String toString() {
-            return "ClassTypeArray{" +
-                    "name='" + name + '\'' +
-                    '}';
-        }
+        // Step 4: Output the results
+        System.out.println("First non-repeating character: " + (firstNonRepeating != null ? firstNonRepeating : "None"));
+        System.out.println("Last non-repeating character: " + (lastNonRepeating != null ? lastNonRepeating : "None"));
     }
 }

@@ -1,0 +1,135 @@
+Springboot
+-------------
+Spring + configurations + tomcat
+tomcat comes with spring boot web dependency
+
+Most commonly used annotations
+----------------------------------
+@SpringbootApplication
+--------------------------
+main method of springboot project combination of @Configuration -->
+@EnableAutoConfiguration --> DispatherServlet,ViewResolvers.
+@ComponentScan -->
+@Component-->For making class bean spring ioc controller used create an object. class level
+@Service-->For Business logic,
+@Repository-->for Dao layer
+@Bean --> make bean programmer way destroyed by IOC container. method level.
+@Controller --> make a method as controller to serve  it return views (Spring MVC controller)
+@Rest controller --> make a method as controller with @ResponseBody. JSON/XML
+@Autowired--> for making object through dependency injections
+@RequestMapping--> to make end point url
+@Putmapping---> all resource update
+@PostMapping--> to create a new resource
+@DeleteMapping--> to delete a new resource
+@GetMapping--> to fetch the data
+@PatchMapping--> partially resource update
+@PutMapping --> whole resource update.
+@value--> to get the value from properties.yml
+@profile--> to set the profile
+@Transaction--> for handling transaction issue
+@PreContruct--> before springboot project run
+@PostContract--> after springboot project run.
+@Pathvarible--> path provide in url as variable
+@RequestParam--> parameter provide in url
+@RequestHeader--> for header
+@ExceptionHandler--> for execution handling
+@Qualifier-->to given name for the beans.
+@Scope -> to define scope of the bean
+@ExceptionHandler -->
+@ControllerAdvice -->
+----------------------------------------
+Bean scope
+--------------
+singleton --> used to create only one object
+prototype--> every time create one object.
+session-->bean per session HTTP session.
+request-->bean per request HTTP request.
+global session-->
+application --> application context.
+
+
+@Primary --> used to primary set the bean
+@Lazy -->created when will used
+@PreAuthorize -->
+@PostAuthorize -->
+@EnableMethodLevelSecurity-->
+
+
+
+JWT token (Bearer token)
+------------------------------
+Header,payload,signature and encoding base 64 with expiry and signature.
+body --> claims(Roles),some extra information.
+
+
+
+logging
+----------
+@slj logging info,debug,warn. local see in console.
+
+
+API documentations
+----------------------
+Swagger API
+
+Versioning in API
+------------------
+api versing in url v1 and v2
+
+Profiling in Springboot
+-------------------------
+for each profile separate different application.yml files.
+spring cloud configure server.
+@value
+@RefreshScope
+@EventListener
+
+
+Microservices
+-----------------
+Load balancing --> client side and server side balancing
+Service registry --> registry of all microservices.
+Service discovery -->
+Api gateway --> predicates all the request come to api gateway and then redirect to another microservices.
+oAuth2 along with proxy ,role based authorization and jwt authentication.
+open id connect (OIDC) + OAuth2 Okta server.
+
+communication in Microservices
+------------------------------
+Synchronize
+----------------
+Rest temple open field
+ASynchronize
+--------------
+Kafka,Rabbit MQ,Active MQ.
+--------------------------------
+Prometheus and Grafana,elastic stack,ELK stack,kibana,
+Zipkin --> Distributed ,Spring Cloud Sleuth
+New Relic
+----------------------------
+For heath check in microservice
+-------------------------------------
+@Liveness or @Readiness annotation
+
+For cache
+------------------
+@cacheable
+
+
+CI --> Jenkins
+CD -->Argo CD
+
+Q) maven vs gradle?
+Ans: maven --> used xml
+gradle
+--------
+DSL language gradle is faster than maven.
+
+<exclusion> tag to remove any dependency
+
+Q) what is kafka?
+Ans:It is distributed pub sub based event driven message broker.
+
+
+Q) Actuator in Springboot?
+Ans: health,info,metrics,beans.

@@ -1,6 +1,8 @@
 package String;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringQuestionsExample {
     public static void main(String args[]) {
         //   Scanner scanner=new Scanner(System.in);
@@ -15,26 +17,48 @@ public class StringQuestionsExample {
         //    tocharArray();
         //  System.out.println(reverseEachLetter("hi neeraj"));
       //  System.out.println(capitaliseEachLetter("this is example of capital"))
-        CountFrequency();
-        CountVowelAndConsonant();
+       // CountFrequency();
+      //  CountVowelAndConsonant();
+
+        String word="my";
+       // System.out.println(word.length());
+      //  System.out.println(reverseEachLetter("my name is neeraj prince"));
+       // reverseWords("Prince Choudhary");
+     //   wordCount(word);
+
+      //  String cookieName="My name is neeraj";
+      //  replaceSpaceToUnderScore(cookieName);
+
+        getSmallerQuantityProduct();
+
     }
 
-    private static void CountVowelAndConsonant() {
-        String name="Neeraj";
-        int vowel=0;
-        int cons=0;
+    private static void reverseWords(String princeChoudhary) {
+        String wordArray[]=princeChoudhary.split(" ");
 
-        for(int i=0;i<name.length();i++){
-            char c = name.charAt(i);
-            if(c=='a' || c=='e' || c == 'o' || c == 'i' || c=='u'){
-                vowel=vowel+1;
+        for(String s:wordArray){
+            char[] charArray = s.toCharArray();
+            for(int i=charArray.length-1;i>=0;i--){
+                System.out.print(charArray[i]);
             }
-            else{
-                cons=cons+1;
-            }
+            System.out.println(" ");
         }
-        System.out.println("volwel is "+vowel);
-        System.out.println("cons is " +cons);
+    }
+
+
+    private static void replaceSpaceToUnderScore(String cookieName) {
+        String spitted[]=cookieName.split(" ");
+        StringBuffer sb=new StringBuffer();
+        for(String s:spitted){
+            sb.append(s+'_');
+        }
+        System.out.println(sb);
+    }
+
+    private static void wordCount(String word) {
+        String words[]=word.split(" ");
+        System.out.println(words.length);
+
     }
 
     //toCharArray()
@@ -98,8 +122,33 @@ public class StringQuestionsExample {
             }
             System.out.println(c +"--->"+ count);
         }
-
     }
+
+    private static void getSmallerQuantityProduct(){
+        String s = "pen100;copy50;key30";
+        List<Character> list = new ArrayList<>();
+
+        // Split the input string by semicolon
+        String[] splited = s.split(";");
+
+        // Iterate through each product (like "pen100", "copy50", "key30")
+        for (String product : splited) {
+            // Iterate over each character of the product
+            for (int i = 0; i < product.length(); i++) {
+                char ch = product.charAt(i);
+
+                // If the character is a digit, add it to the list
+                if (Character.isDigit(ch)) {
+                    list.add(ch);
+                }
+            }
+        }
+
+        // Print the list of digits (characters)
+        System.out.println(list);
+    }
+
+
 }
 
 
