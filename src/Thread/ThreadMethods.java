@@ -1,5 +1,8 @@
 package Thread;
 
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+
 public class ThreadMethods extends Thread{
     public static void main(String[] args) {
         userDefineThread();
@@ -19,7 +22,6 @@ public class ThreadMethods extends Thread{
 
     private static void yieldMethod() {
         //Skip the current thread and give change to another thread... which have same priority
-
     }
 
     private static void joinMethod() {

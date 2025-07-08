@@ -1,10 +1,9 @@
-package executers;
+package Thread;
 
-import java.util.Calendar;
 import java.util.concurrent.*;
 
 //pool of threads to do tasks
-//it is created blocking queue ,so it is thread safe operations.
+//it is created blocking queue, so it is thread safe operations.
 //ideal pool size is
 //callable method
 public class ExecuteFrameWork {

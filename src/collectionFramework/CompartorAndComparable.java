@@ -52,8 +52,14 @@ public class CompartorAndComparable {
                 forEach(System.out::println);
 
         // double
-        Double d = 100.0;
-        DoubleStream.of(d);
+      //  Double d = 100.0;
+      //  DoubleStream.of(d);
+        List<Double> doubleList = new ArrayList<>();
+        doubleList.add(100.0);
+        doubleList.add(50.0);
+        doubleList.add(25.0);
+        doubleList.stream().sorted(Comparator.comparingDouble(Double::doubleValue)).collect(Collectors.toList()).forEach(System.out::println);
+
 
         // int
         int x=100;
@@ -72,7 +78,8 @@ public class CompartorAndComparable {
 
 
         System.out.println("===========================");
-        Map<Integer, String> filteredMap = programmingLangMap.entrySet().stream().filter(key -> key.getKey() == 1).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        Map<Integer, String> filteredMap = programmingLangMap.entrySet().stream().filter(key -> key.getKey() == 1).
+                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         System.out.println(filteredMap.entrySet());
 
         System.out.println("===========================");

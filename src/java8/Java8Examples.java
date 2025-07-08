@@ -1,7 +1,9 @@
 package java8;
 
 import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -9,28 +11,51 @@ import java.util.stream.Stream;
 
 public class Java8Examples {
     public static void main(String a[]){
+        Logger logger = Logger.getLogger(Java8Examples.class.getName());
+
         String fruit[]={"Apple","Banana","Awacado"};
         List<Integer> list=Arrays.asList(121);
         //Second largest element in java8
         int arr1[]={100,19,11,45,69,45};
         int arr2[]={100,45,1,32,31};
 
-
-       // fetchTheSammlestElement(arr1);
-       // commonElementofArray(arr1,arr2);
-      //  reverseTheArray(arr1);
-      //  getCountFreqencyOfCharaters();
-      //  countVolwelInString();
-      //  lenghthLongestString(fruit);
-       // checkForArmStrongNumberWithJava8(list);
-       // mergeTwoLists();
-       // allOtherOperations();
-
         String joiningString = Stream.of("Neeraj", "kumar", "Keshri").collect(Collectors.joining("-"));
-        System.out.println(""+joiningString);
+        logger.info(""+joiningString);
+
+        // reducing takes binary operator
+        List<Integer> integerList = Arrays.asList(10,5,4,8,3,7);
+        Integer sum = integerList.stream().collect(Collectors.reducing(0,Integer::sum));
+        Integer max = integerList.stream().collect(Collectors.reducing(Integer::max)).get();
+        Optional<Integer> min = integerList.stream().reduce(Integer::min);
+        logger.info(""+sum);
+        logger.info(""+max);
+        logger.info(""+min.get());
 
 
+        // it will partition the stream with two parts
+        Set<Map.Entry<Boolean, List<Integer>>> entries = integerList.stream().collect(Collectors.partitioningBy(x -> x % 2 == 0)).entrySet();
+        System.out.println(entries);
 
+
+        // Collectors.collectingAndThen();
+
+
+        //Collectors.teeing();
+
+
+        //Collectors.maxBy();
+        Integer i2 = integerList.stream().collect(Collectors.maxBy(Comparator.naturalOrder())).get();
+        System.out.println(i2);
+        Integer i3 = integerList.stream().max(Integer::compareTo).get();
+        System.out.println(i3);
+        Integer i4 = integerList.stream().sorted(Collections.reverseOrder()).findFirst().get();
+        System.out.println(i4);
+
+        // Collectors.minBy()
+        Integer i1 = integerList.stream().collect(Collectors.minBy(Comparator.naturalOrder())).get();
+        System.out.println(i1);
+        Integer i = integerList.stream().min(Integer::compareTo).get();
+        System.out.println(i);
     }
 
     private static void mergeTwoLists() {
@@ -230,6 +255,8 @@ public class Java8Examples {
         integers.stream().peek(integer -> {}).collect(Collectors.toList()).forEach(System.out::println);
 
         Stream.of(1,2).forEachOrdered(System.out::println);
+
+
 
     }
 
