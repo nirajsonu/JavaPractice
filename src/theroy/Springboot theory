@@ -133,3 +133,10 @@ Ans:It is distributed pub sub based event driven message broker.
 
 Q) Actuator in Springboot?
 Ans: health,info,metrics,beans.
+
+@) How to increase build time of springboot application?
+Ans: lazy initialization of bean
+spring.main.lazy-initialization=true
+
+2)parallel maven build
+mvn clean install -T 1C  one thread per core.

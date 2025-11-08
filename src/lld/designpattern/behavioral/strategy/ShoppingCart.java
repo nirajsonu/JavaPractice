@@ -1,8 +1,5 @@
 package lld.designpattern.behavioral.strategy;
 
-import lld.designpattern.behavioral.strategy.Item;
-import lld.designpattern.behavioral.strategy.PaymentStrategy;
-
 import java.util.ArrayList;
 import java.util.List;
 

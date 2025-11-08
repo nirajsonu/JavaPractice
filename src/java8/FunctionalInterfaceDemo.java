@@ -1,4 +1,5 @@
 package java8;
+import javax.script.ScriptEngineManager;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -68,6 +69,16 @@ public class FunctionalInterfaceDemo {
             }
         }
 
+        Predicate<String> startsWithA = s -> s.startsWith("A");
+        Predicate<String> endsWithX = s -> s.endsWith("x");
+
+        Predicate<String> startsWithAAndEndsWithX = startsWithA.and(endsWithX);
+
+        System.out.println(startsWithAAndEndsWithX.test("Aardvax"));  // Output: true
+        System.out.println(startsWithAAndEndsWithX.test("Ajax"));  // Output: true
+        System.out.println(startsWithAAndEndsWithX.test("Apex"));  // Output: false
+
+
         //Function
         Function<Integer,Integer> function=i->i*i;
         System.out.println("Function functional interface...");
@@ -113,7 +124,10 @@ public class FunctionalInterfaceDemo {
 
         UnaryOperator<Boolean> operator = UnaryOperator.identity();
         System.out.println(operator.apply(true));
-        
+
+
+        TriFunction<Integer,Integer,Integer,Integer> triFunction = (w,y,z)-> w+y+z;
+        System.out.println(triFunction.apply(10,20,30));
     }
 
     public void functionInterfaceWith() {
@@ -163,5 +177,10 @@ public class FunctionalInterfaceDemo {
     @FunctionalInterface
     public interface custom{
         void m1();
+    }
+
+    @FunctionalInterface
+    public interface TriFunction<A,B,C,R>{
+        R apply(A a, B b, C c);
     }
 }

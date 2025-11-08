@@ -84,6 +84,10 @@ faltMapping -->
 Collectors.teeing() -->
 
 
+Why Comparable is not functional interface?
+Ans -> becuase it will not convert to lamda expression it relay on object context
+
+
 Default Methods -->
 Method Reference -->
 

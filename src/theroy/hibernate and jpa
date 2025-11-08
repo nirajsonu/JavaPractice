@@ -12,6 +12,9 @@ Hibernate annotations
 @ManyToOne -->
 @ManyToMany -->
 @Transactional-->
+@Formula("salary * 12")
+private double annualSalary;
+
 
 CrudRepository vs JPARepository?
 Crud --> it has only crud methods.

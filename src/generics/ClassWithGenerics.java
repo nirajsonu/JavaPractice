@@ -2,13 +2,20 @@ package generics;
 
 public class ClassWithGenerics {
     public static void main(String[] args) {
-
         MyCustomHashMap<Integer,String> myCustomHashMap=new MyCustomHashMap<>();
         myCustomHashMap.setObject(10);
         myCustomHashMap.setObject1("Neeraj");
-       System.out.println( myCustomHashMap.getObject());
-       System.out.println( myCustomHashMap.getObject1());
+        System.out.println( myCustomHashMap.getObject());
+        System.out.println( myCustomHashMap.getObject1());
 
+        // Unbounded Wildcard
+        // Class<?>
+
+        // Upper Bounded
+        // Class <? extends Demo >
+
+        // Lower bounded wildcard
+        // Class <? super Demo >
     }
 }
 

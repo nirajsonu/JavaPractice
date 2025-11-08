@@ -2,6 +2,8 @@ package annotations;
 public class MyClass {
     public static void main(String a[]){
         Demo demo=new Demo();
+
+        // upper bounded generics
         Class<? extends Demo> aClass = demo.getClass();
         System.out.println(aClass.getName());
         MyCustomAnnotation annotation = aClass.getAnnotation(MyCustomAnnotation.class);

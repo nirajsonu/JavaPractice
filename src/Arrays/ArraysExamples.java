@@ -28,8 +28,14 @@ public class ArraysExamples {
        // evenOddElements();
        // bubbleSort();
 
+        // Negative Array Size
+        //int arr1[] = new int[-1];
+
         int[] x ={20,50,30,40};
         int[] y ={20,5,70,80};
+
+        Object o = new Object();
+        //Number number = new Integer(String.valueOf(1));
 
         // Arrays class it is a utility class that would be helpful to sorting,merging,copy the elements of the arrays
         int arr[]=new int[10];
@@ -69,15 +75,15 @@ public class ArraysExamples {
 
         //arrays to set/list.....
         Set<Integer> hashSet=new HashSet<>();
-        for(Integer o:arr){
-            hashSet.add(o);
+        for(Integer in:arr){
+            hashSet.add(in);
         }
         System.out.println(hashSet);
         System.out.println(hashSet.getClass().getName());
 
         List<Object> ArrayList=new ArrayList<>();
-        for(Object o:arr){
-            ArrayList.add(o);
+        for(Object obj:arr){
+            ArrayList.add(obj);
         }
         System.out.println(ArrayList);
         System.out.println(ArrayList.getClass().getName());

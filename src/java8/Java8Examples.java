@@ -56,6 +56,15 @@ public class Java8Examples {
         System.out.println(i1);
         Integer i = integerList.stream().min(Integer::compareTo).get();
         System.out.println(i);
+
+        // terminal operator
+        // for each,collect, reduce, count.
+
+        // intermediate operator
+        // map,flatmap,distinct,filter,
+
+        // short circuit operator
+
     }
 
     private static void mergeTwoLists() {
@@ -69,7 +78,7 @@ public class Java8Examples {
         System.out.println(mergeList);
     }
 
-    private static void allOtherOperations() {
+    private void allOtherOperations() {
         List<Product> productList= new ArrayList<>();
         productList.add(new Product("Neeraj",1000,"male","HR"));
         productList.add(new Product("geeta",2000,"female","IT"));
@@ -257,7 +266,35 @@ public class Java8Examples {
         Stream.of(1,2).forEachOrdered(System.out::println);
 
 
+        List<person> personAge = new ArrayList<>();
+        personAge.add(new person(10));
+        personAge.add(new person(40));
+        personAge.add(new person(50));
+        personAge.add(new person(90));
 
+        personAge.stream().collect(Collectors.groupingBy(person -> {
+            int age = person.getAge();
+            if (age <= 18) return "0-18";
+            else if (age <= 35) return "19-35";
+            else if (age <= 50) return "36-50";
+            else return "Out of range";
+        }));
+    }
+
+
+    class person{
+        private int age;
+        person(int age){
+            this.age = age;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
     }
 
     private static void checkForArmStrongNumberWithJava8(List<Integer> list) {

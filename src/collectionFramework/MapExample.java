@@ -1,13 +1,15 @@
 package collectionFramework;
 
+import java.io.File;
+import java.lang.reflect.Field;
 import java.util.*;
 
 public class MapExample {
 
 
-    public static void main(String args[]){
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         //HashMap
-        // Not Synchronized,Non thread safe,fast,null key,value allowed,non legacy class.
+        // Aren't Synchronized, Non thread safe,fast,null key,value allowed, non-legacy class.
         HashMap<String,String> hashMap=new HashMap<>();
         hashMap.put("name","Neeraj");
         hashMap.put("id","222");
@@ -17,6 +19,8 @@ public class MapExample {
         System.out.println("keySet-->"+hashMap.keySet());
         System.out.println("ValueSet-->"+hashMap.values());
         System.out.println(hashMap);
+        
+
 
 
         //when we put same object then one value is replaced
@@ -30,7 +34,7 @@ public class MapExample {
 
 
         //LinkedHashMap(Linked-list+hashtable)
-        //Insertion order preserved,cache based application
+        //Insertion order preserved, cache based application
         LinkedHashMap<String,String> linkedHashMap=new LinkedHashMap<>();
         linkedHashMap.put("name","neeraj");
         linkedHashMap.put("sonu","1");
@@ -42,7 +46,6 @@ public class MapExample {
         IdentityHashMap<Integer,String> identityHashMap=new IdentityHashMap<>();
         Integer i3=new Integer(10);
         Integer i4=new Integer(10);   //I1.equals(I2).
-        identityHashMap.put(i3,"Neeraj");
         identityHashMap.put(i4,"sonu");
         System.out.println(identityHashMap);
 

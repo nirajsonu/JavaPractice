@@ -1,4 +1,4 @@
-package Thread;
+package java8;
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,13 +51,30 @@ public class ComputableFutureDemo {
 
 
         // runAsync don't return anything take argument Runnable
+        CompletableFuture<Void> future = CompletableFuture.runAsync(()->System.out.println("Run Async"));
+
+
+        // thenAccept(Consumer)
+        CompletableFuture<String> futureSupply = CompletableFuture.supplyAsync(() -> {
+            return "Hello from supplyAsync";
+        });
+        futureSupply.thenAccept(System.out::println); // Prints: Hello from supplyAsync
 
 
 
         // thenApply(Function)
+        CompletableFuture<Integer> integerFuture = CompletableFuture.supplyAsync(() -> 42);
+        integerFuture.thenApply(result -> result * 2)
+                .thenAccept(finalResult -> System.out.println("Final result: " + finalResult));
 
-        // thenAccept(Consumer)
 
-        //thenRun(Runnable)
+        //thenRun(Runnable) for mutiple tasks
+        CompletableFuture<Void> thenRunFuture = CompletableFuture
+                .supplyAsync(() -> {
+                    System.out.println("First task");
+                    return "Result";
+                })
+                .thenRun(() -> System.out.println("Second task (no input needed)"));
+
     }
 }
