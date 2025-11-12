@@ -1,15 +1,12 @@
 package datastuctures;
 
 public class LinkedListExample {
-
     // The head of the linked list
     private Node head;
-
     // Node class to define the elements of the list
     class Node {
         int data;
         Node next;
-
         // Constructor for the node
         Node(int data) {
             this.data = data;
@@ -20,7 +17,6 @@ public class LinkedListExample {
     // Method to add a new node at the end of the linked list
     public void add(int data) {
         Node newNode = new Node(data);
-
         // If the list is empty, the new node becomes the head
         if (head == null) {
             head = newNode;
@@ -50,7 +46,6 @@ public class LinkedListExample {
         list.add(10);
         list.add(20);
         list.add(30);
-
         list.display(); // Output: 10 -> 20 -> 30 -> null
     }
 }
