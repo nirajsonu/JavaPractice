@@ -4,8 +4,8 @@ Final and abstract illegal combinations.
 Finally --> Used for the cleanup code in exception handling always executes only not execute system.exit(0).
 Finalize --> it is used to clean up code call garbage collector.
 
-Q) String vs. StringBuilder vs. String-buffer?
-Ans: String --> Immutable non-modifiable data structure.
+Q) programs.String vs. StringBuilder vs. programs.String-buffer?
+Ans: programs.String --> Immutable non-modifiable data structure.
 StringBuilder --> non-Immutable non synchronized (at a time many threads can use)
 StringBuffer --> non-Immutable synchronized (at a time one thread can use)
 
@@ -113,7 +113,7 @@ Abstract class -->Abstract or non-Abstract methods. extends
 
 Q) How to make immutable class
 And use private constructor, only getter method,declare as final so no inheritance, make all fields final and private.
-Example : String,Wrapper class,LocalDate,LocalTime,Instant.
+Example : programs.String,Wrapper class,LocalDate,LocalTime,Instant.
 
 Q)What Synchronize method and synchronize block?
 Ans: Synchronize method --> used to allow one thread can run one time
@@ -180,7 +180,7 @@ Ans: Externalization is customizing Serialization.
 Q) storage in java?
 Ans: Stack will store methods and primitives
 Heap: Objects
-String pool Area -->
+programs.String pool Area -->
 Native Area.
 PC register
 Static area

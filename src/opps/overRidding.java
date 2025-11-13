@@ -19,6 +19,11 @@ public class overRidding implements MyInteface{
     }
 
     @Override
+    public ParentClass addParent() {
+        return null;
+    }
+
+    @Override
     public void m1() {
         System.out.println("m1 overloaded method...");
     }
@@ -28,3 +33,5 @@ public class overRidding implements MyInteface{
         System.out.println("m2 overloaded method..");
     }
 }
+
+

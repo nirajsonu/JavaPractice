@@ -125,7 +125,7 @@ public class MapExample {
         p.put("Brand","Apple");
         p.put("Model","M2");
         //p.load(InputStream);
-        //p.store(OutputStream os,String comment);
+        //p.store(OutputStream os,programs.String comment);
 
 
     }

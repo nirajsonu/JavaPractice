@@ -19,4 +19,9 @@ public class InterfaceImplimentionClass implements MyInteface {
     public void m2() {
         System.out.println("m2 method..");
     }
+
+    @Override
+    public ParentClass addParent() {
+        return null;
+    }
 }

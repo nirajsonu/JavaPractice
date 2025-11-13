@@ -31,7 +31,7 @@ public class CompartorAndComparable {
         System.out.println(sortedString);
 
 
-        // Arrays
+        // programs.Arrays
         int arr[]  = {10,20,5,34,23};
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
@@ -43,7 +43,7 @@ public class CompartorAndComparable {
         Arrays.stream(arr).sorted().boxed().collect(Collectors.toList()).forEach(System.out::println);
 
 
-        // String
+        // programs.String
         String name = "Neeraj";
         name.chars().
                 mapToObj(c->(char) c).

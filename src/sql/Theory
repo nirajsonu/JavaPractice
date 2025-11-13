@@ -359,6 +359,20 @@ Query optimization
 4)use partial views
 ---------------------------
 
+ACID property
+-----------------
+A -> Atomicity it is should atomic not changes its value until trasacion complted
+C -> Constancy it is consistance if trasction do 5 steps all 5 steps to commit the changes  rollback , savepoint
+Strong Consistency,Bounded Staleness,Session Consistency,Consistent Prefix,Eventual Consistency
+I --> Isolation each trasaction independe each other
+READ COMMITTED or SERIALIZABLE,Repeatable Read,Read Uncommitted
+D -> durabity once changes save it won't be changes
+
+Normalization
+---------------
+Normalization in databases is the process of organizing data to reduce redundancy and improve data integrity.
+1NF,2NF,3NF,BCNF
+
 
 
 

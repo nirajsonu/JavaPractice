@@ -3,7 +3,7 @@ Springboot
 Spring + configurations + tomcat
 tomcat comes with spring boot web dependency
 
-Most commonly used annotations
+Most commonly used opps.annotations
 ----------------------------------
 @SpringbootApplication
 --------------------------

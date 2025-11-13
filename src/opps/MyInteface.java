@@ -9,4 +9,6 @@ public interface MyInteface {
     static void m3() {
         System.out.println("static method");
     }
+    
+    public ParentClass addParent();
 }
