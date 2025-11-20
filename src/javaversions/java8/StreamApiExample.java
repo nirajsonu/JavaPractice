@@ -9,6 +9,10 @@ import java.util.stream.Stream;
 
 
 //if you want to process the objects then we should go for Stream API.
+// Upstream = “How to group items”
+//Downstream = “What to do with items inside each group”
+// intermediate operator is lazy intimation
+// terminal operator start execution
 public class StreamApiExample {
 
     public static void main(String a[]){

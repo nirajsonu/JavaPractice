@@ -30,7 +30,7 @@ public class OptionalDemo {
         System.out.println(intOptional);
 
 
-        Optional<Employee> optionalEmployee=Optional.of(new Employee("Neeraj","Ranchi",100l));
+        Optional<Employee> optionalEmployee=Optional.of(new Employee("Neeraj","Ranchi",100l,"CS"));
        System.out.println(optionalEmployee.get().address);
 
         //to get the value of the optional
@@ -59,47 +59,3 @@ public class OptionalDemo {
     }
 }
 
-class Employee{
-    String name;
-    String address;
-
-    Long salary;
-
-    public Employee(String name, String address,Long salary) {
-        this.name = name;
-        this.address = address;
-        this.salary = salary;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Long salary) {
-        this.salary = salary;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
-}

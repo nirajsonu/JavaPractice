@@ -19,6 +19,8 @@ public class MapExample {
         System.out.println("keySet-->"+hashMap.keySet());
         System.out.println("ValueSet-->"+hashMap.values());
         System.out.println(hashMap);
+
+        hashMap.getOrDefault("id","11");
         
 
 

@@ -4,102 +4,237 @@ import java.util.Arrays;
 import java.util.*;
 
 public class ArraysExamples {
-    public static void main(String a[]){
-       //copyElementsOfTheArray();
-     //   sumOftheElements();
-      //  insertElementOftheArrays();
-     //   checkDuplicateElementOrNot();
-        
-        //Several's utility methods for arrays.
-        //int [],byte[],char[]
-        //programs.Arrays.sort(primitive arrays)
-        //programs.Arrays.sort(object arrays)
-        //programs.Arrays.sort(object arrays,comparator c)
-
-        //binarySearch()
-
-        //programs.Arrays to List
-        //programs.Arrays.asList()
-
-       // minElement();
-       // leanearSearchWithFrequency();
-      //  checkDuplicateElementOrNot();
-
-       // evenOddElements();
-       // bubbleSort();
-
-        // Negative Array Size
-        //int arr1[] = new int[-1];
-
-        int[] x ={20,50,30,40};
-        int[] y ={20,5,70,80};
-
-        Object o = new Object();
-        //Number number = new Integer(programs.String.valueOf(1));
-
+    public static void main(String a[]) {
         // programs.Arrays class it is a utility class that would be helpful to sorting,merging,copy the elements of the arrays
-        int arr[]=new int[10];
-        arr[0]=1;
-        arr[1]=10;
-        arr[2]=3;
-        arr[4]=5;
-        arr[5]=11;
+        int arr[] = new int[10];
+        arr[0] = 1;
         System.out.println(arr.length);
 
         //Copy Array with size
-        int x1[]= Arrays.copyOf(arr, 12);
-        x1[11]=22;
+        int x1[] = Arrays.copyOf(arr, 12);
+        x1[11] = 22;
 
         //to convert programs.Arrays to the string
         System.out.println(Arrays.toString(arr));
 
         //to sort elements
         Arrays.sort(arr);
-        for(int i:arr){
+        for (int i : arr) {
             System.out.print(i);
         }
-
-        //to sort by comparator
-        /*programs.Arrays.sort(arr, new Comparator<>() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
-            }
-        });*/
 
         //binarySearch
         System.out.println("");
         Arrays.sort(arr);
-        System.out.println("BinarySerch "+Arrays.binarySearch(arr,10));
+        System.out.println("BinarySerch " + Arrays.binarySearch(arr, 10));
 
 
         //arrays to set/list.....
-        Set<Integer> hashSet=new HashSet<>();
-        for(Integer in:arr){
+        Set<Integer> hashSet = new HashSet<>();
+        for (Integer in : arr) {
             hashSet.add(in);
         }
         System.out.println(hashSet);
         System.out.println(hashSet.getClass().getName());
 
-        List<Object> ArrayList=new ArrayList<>();
-        for(Object obj:arr){
+        List<Object> ArrayList = new ArrayList<>();
+        for (Object obj : arr) {
             ArrayList.add(obj);
         }
         System.out.println(ArrayList);
         System.out.println(ArrayList.getClass().getName());
 
-        int []newArr=new int[2];
-        newArr[0]=100;
-        newArr[1]=101;
+        //copyElementsOfTheArray();
+        //   sumOftheElements();
+        //  insertElementOftheArrays();
+        //   checkDuplicateElementOrNot();
+        // minElement();
+        // leanearSearchWithFrequency();
+        //  checkDuplicateElementOrNot();
+        // evenOddElements();
+        // bubbleSort();
+        // checkDuplicateElementOrNot();
+        //interSectionOfBothArrays(x,y);
+        // uniounOfBothArrays(x,y);
+        //checkDuplicates();
 
-        Integer maxValue=Integer.MAX_VALUE;
-        Integer minValue=Integer.MIN_VALUE;
+        int x[] = {10, 40, 13, 87};
+        int element = 40;
+        int moveZero[] = {1, 56, 4, 0, 4, 0, 5, 0};
+        int arr1[] = {10, 45, 35, 18, 10, 40, 50, 40};
+        int twoSumArr[] = {3, 6, 8, 3, 7};
+        int target = 15;
+        int kth[]={34,23,24,67,88,22};
+        int k=2;
 
-        checkDuplicateElementOrNot();
-        interSectionOfBothArrays(x,y);
-        uniounOfBothArrays(x,y);
+        deleteElementFromArray(x, element);
+        searchElementInArray(x, element);
+        moveZeroFromRight(moveZero);
+        nthHigeshElementInArray(moveZero, element);
+        duplicateInArray(arr1, element);
+        pairofArray(x);
+        twoSumProblem(twoSumArr, target);
+        getSmallestNumberOfArray(kth,k);
+        missingnumber();
+        pallimdropNumber();
     }
 
+    private static void pallimdropNumber() {
+        int x=121;int r=0,sum=0;
+        int temp=x;
+        while (x>0){
+            r=x%10;
+            x=x/10;
+            sum=(sum*10)+r;
+        }
+        if(temp==sum){
+            System.out.println("Palimdrom Number");
+        }
+        else{
+            System.out.println("Not a plaimdrom Number");
+        }
+        digitsOfSum(123);
+    }
+
+    private static void digitsOfSum(int x) {
+        int sum=0,r=0;
+        while (x>0){
+            r=x%10;
+            x=x/10;
+            sum=sum+r;
+        }
+        System.out.println("Sum of digits of the number is "+sum);
+    }
+
+    public static void missingnumber(){
+        int a[] ={-1,1,5};  // 0 2 3 4
+        // step 1 convert -ve to +ve
+        for(int i=0;i<a.length-1;i++) {
+            if (a[i] < 0) a[i] = Math.abs(a[i]);
+        }
+
+        // find a max element
+        int max = Arrays.stream(a).max().getAsInt();
+        boolean[] present = new boolean[max +1];
+        for(int num:a){
+            present[num] = true;
+        }
+        for(int i=0;i<max;i++){
+            if(!present[i]){
+                System.out.println(i);
+            }
+        }
+    }
+
+    private static void searchElementInArray(int[] x, int element) {
+        boolean isFound = false;
+        int index = 0;
+        for(int i=0;i<x.length;i++){
+            if(x[i] == element){
+                isFound = true;
+                index = i;
+                break;
+            }
+        }
+
+        if(isFound){
+            System.out.println("element found "+element +" with position "+index);
+        }
+    }
+
+    private static void deleteElementFromArray(int[] x, int element) {
+        int[] updatedArray = new int[x.length - 1];
+        boolean found = false;
+        int index = 0;
+
+        for (int i = 0; i < x.length; i++) {
+            if (!found && x[i] == element) {
+                found = true;
+                continue;
+            }
+            if (index < updatedArray.length) {
+                updatedArray[index++] = x[i];
+            }
+        }
+
+        if (found) {
+            System.out.println("Updated Array: " + Arrays.toString(updatedArray));
+        } else {
+            System.out.println("Element not found in array.");
+        }
+    }
+
+
+    private static void pairofArray(int[] x) {
+        for(int i=0;i<x.length;i++){
+            for(int j=i+1;j<x.length;j++){
+                System.out.println(x[i]+","+x[j]);
+            }
+        }
+    }
+
+    private static void moveZeroFromRight(int[] moveZero) {
+        int index = 0; // Position to place the next non-zero element
+
+        for (int i = 0; i < moveZero.length; i++) {
+            if (moveZero[i] != 0) {
+                // Swap only if i != index to avoid redundant operations
+                if (i != index) {
+                    int temp = moveZero[i];
+                    moveZero[i] = moveZero[index];
+                    moveZero[index] = temp;
+                }
+                index++;
+            }
+        }
+
+        System.out.println(Arrays.toString(moveZero));
+    }
+
+    private static void nthHigeshElementInArray(int[] moveZero, int element) {
+        int nthHigesh =0;
+        for (int i=0;i<moveZero.length;i++){
+            if(moveZero[i]>element){
+                nthHigesh = moveZero[i];
+            }
+        }
+    }
+
+    private static void twoSumProblem(int[] twoSumArr, int target) {
+        for(int i=0;i<twoSumArr.length-1;i++){
+            if(twoSumArr[i] +twoSumArr[i+1] == target){
+                System.out.println("match");
+            }
+        }
+    }
+
+    private static void duplicateInArray(int[] arr,int element) {
+        int count =0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] ==element){
+                count = count +1;
+            }
+        }
+
+        if(count>0){
+            System.out.println("it is duplicate " + element +" count "+count);
+        }
+    }
+
+    public static void checkDuplicates(){
+        int duplicateElementArray[] = {10,78,14,14,23,56,10,78,99,56,124};
+        HashSet<Integer> duplicateElements = new HashSet<>();
+        for(int i=0;i<duplicateElementArray.length;i++){
+            for(int j=i+1;j<duplicateElementArray.length;j++){
+                if(duplicateElementArray[i]==duplicateElementArray[j]){
+                    duplicateElements.add(duplicateElementArray[i]);
+                }
+            }
+        }
+        for(Integer i:duplicateElements){
+            System.out.println(i);
+        }
+    }
 
     private static void uniounOfBothArrays(int[] x, int[] y) {
         HashSet<Integer> hashSet=new HashSet<>();
@@ -227,6 +362,15 @@ public class ArraysExamples {
         System.out.println("min number\n "+min);
     }
 
+
+    private static void getSmallestNumberOfArray(int[] x, int k) {
+        Arrays.sort(x);
+        int smallestElement=0;
+        for(int i=0;i<x.length-1;i++){
+            smallestElement=x[x.length-k];
+        }
+        System.out.println(smallestElement);
+    }
     private static void bubbleSort(){
         int arrayOfElements[]={80,23,34,45,1,67,49};
         int temp=0;

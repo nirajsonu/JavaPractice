@@ -207,8 +207,25 @@ Java LTS (Long-term support)
 Q) Sealed class,records, patten matching in switch,virtual thread,scope values.
 
 Q) Atomic Variable?
+Ans:
 
+Q) Deep copy and shallow copy?
+Ans:Shallow copy → Copies the object, but references inside still point to the same memory.
+    Deep copy → Copies the object and creates new copies of all nested objects, so the entire structure is independent.
 
+Q) Optimistic locking vs Pessimistic locking?
+Optimistic locking
+No DB lock taken. Uses a version check at commit time. If someone else updated the row, the transaction fails.
 
+Pessimistic locking:
+Locks the row immediately (e.g., SELECT FOR UPDATE). Other transactions must wait.
 
+Q) What is Eventual consistency?
+Eventual consistency is a consistency model in distributed systems where updates propagate asynchronously to all nodes.
+Data may be temporarily inconsistent, but eventually becomes consistent if no new updates occur.
 
+Q)Volatile keyword ?
+Ans: read from main memory for consistency results
+
+Q)Atomic
+Ans: atomic ensures indivisibility (the operation itself cannot be interrupted).
