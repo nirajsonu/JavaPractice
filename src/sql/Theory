@@ -373,6 +373,12 @@ Normalization
 Normalization in databases is the process of organizing data to reduce redundancy and improve data integrity.
 1NF,2NF,3NF,BCNF
 
+Information Schema
+----------------------
+select * from information_schema.columns
+----------------------------------------------
+
+
 
 
 
