@@ -377,6 +377,77 @@ Information Schema
 ----------------------
 select * from information_schema.columns
 ----------------------------------------------
+PostgreSQL DB commands
+----------------------
+SELECT tablename
+FROM pg_tables
+WHERE schemaname = 'public';
+
+explain analyse select * from students
+index scan
+index only scan
+seq scan
+bitmap scan
+
+indexes used binary tree,hash,gin,gist,brin
+
+uncluster index
+-------------------
+create index id_index on student(id)
+explain analyse select * from student where id =1
+
+cluster index
+---------------
+CLUSTER students USING idx_uid;
+CREATE INDEX idx_students_email_hash ON students USING hash(email);
+CREATE INDEX idx_logs_timestamp ON logs USING brin(timestamp);
+CREATE INDEX idx_locations_geom ON locations USING gist(geom);
+CREATE INDEX idx_docs_content ON documents USING gin(to_tsvector('english', content));
+B-Tree → everyday queries (e-commerce, banking).
+
+Hash → pure equality checks (auth systems).
+GIN → text search, JSON, arrays (social media, news).
+GiST → geospatial/range queries (ride-sharing, maps).
+BRIN → massive sequential data (logs, IoT, analytics).
+-----------------------------------------------------------
+partitions
+-------------
+range-based partition
+list partitioning
+hash partitioning
+
+alter table students add column date_of_admission date
+UPDATE students
+SET date_of_admission = '2025-11-20'
+WHERE uid = 1;
+
+SELECT ROW_NUMBER() OVER (ORDER BY student_id) AS rownum,
+       student_id,
+       name
+FROM students;
+SELECT ctid, student_id, name
+FROM students;
+
+
+SELECT name, COUNT(*) AS total
+FROM students
+WHERE id > 2
+GROUP BY name
+HAVING COUNT(*) > 1
+ORDER BY total DESC
+LIMIT 5;
+
+order of execution
+from
+join
+WHERE filters rows before grouping.
+HAVING filters groups after grouping.
+ORDER BY always comes last logically.
+pg_inherits
+
+window functions
+------------------
+Rank() and denceRank()
 
 
 
