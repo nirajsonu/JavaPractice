@@ -229,3 +229,7 @@ Ans: read from main memory for consistency results
 
 Q)Atomic
 Ans: atomic ensures indivisibility (the operation itself cannot be interrupted).
+
+Q) Serlization used uuid to serlized and deserlized if any filed is missing but serlized id match it will ignore none
+matching keys.
+Externalizable --> customized Serlizations

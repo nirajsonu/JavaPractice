@@ -2,21 +2,30 @@ package algorithms;
 
 import java.util.Arrays;
 
+
+// TimSort (Quick sort + insertion sort)
 public class Sorting {
     public static void main(String ars[]){
         int[] arr ={1,4,2,10,34,22,12};
+
+        //// compare neighbour element Iterative Swapping o(n^ 2)
         bubbleSortAlgorithm(arr);
+
+
         selectionSortAlgorithm();
         insertionSort();
         countingSort();
-        quickSort();
-        mergeSortArray();
+
+        // Divide & Conquer   (nlogn) wrost case quicksort o(n^2)
+        quickSort(arr);
+        mergeSortArray(arr);   // wrost case and best case (nlogn);
     }
 
-    private static void mergeSortArray() {
+    private static void mergeSortArray(int arr[]) {
+
     }
 
-    private static void quickSort() {
+    private static void quickSort(int arr[]) {
 
     }
 

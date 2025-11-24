@@ -361,12 +361,12 @@ Query optimization
 
 ACID property
 -----------------
-A -> Atomicity it is should atomic not changes its value until trasacion complted
-C -> Constancy it is consistance if trasction do 5 steps all 5 steps to commit the changes  rollback , savepoint
+A -> Atomicity it is should atomic not changes its value until transaction completed
+C -> Constancy it is consistency if transaction do 5 steps all 5 steps to commit the changes  rollback , savepoint
 Strong Consistency,Bounded Staleness,Session Consistency,Consistent Prefix,Eventual Consistency
-I --> Isolation each trasaction independe each other
+I --> Isolation each transaction independent each other
 READ COMMITTED or SERIALIZABLE,Repeatable Read,Read Uncommitted
-D -> durabity once changes save it won't be changes
+D -> durability once changes save it won't be changes
 
 Normalization
 ---------------
