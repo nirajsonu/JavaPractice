@@ -9,12 +9,28 @@ import java.util.Map;
 public class StringQuestions {
     public static void main(String[] args) {
         String vowelText = "IceCreAm";
-        String text = "aabb";
+        String text = "abc";
         System.out.println(firstUniqChar(text));
         System.out.println(reverseVowels(vowelText));
         countFrequency();
         differentElement();
         stringIntern();
+        String one = "Airoplane";
+        String two = "Air";
+        getWordMatch(one,two);
+    }
+
+    private static void getWordMatch(String one, String two) {
+        int min   = Integer.min(one.length(),two.length());
+        System.out.println(min);
+        for(int i=0;i<min;i++){
+            if(one.contains(two)){
+                System.out.println(two);
+            }
+            else{
+                System.out.println("-1");
+            }
+        }
     }
 
     private static void reverseString(String name) {

@@ -1,6 +1,6 @@
 package algorithms;
 
-// Identify overlapping subproblems.
+// Identify overlapping sub-problems.
 // Top-down
 // Bottom-up // Fibonacci sequence
 // recursion + caching // divide & conquer + memory.

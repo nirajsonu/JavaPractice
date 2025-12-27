@@ -27,7 +27,7 @@ Suppler ---> takes no argument and return a value get()
 
 For two arguments
 ---------------------
-BiPredicate
+BiPredicate --> two
 BiFunction
 BiConsumer
 BiSuppiler
@@ -227,9 +227,58 @@ Data may be temporarily inconsistent, but eventually becomes consistent if no ne
 Q)Volatile keyword ?
 Ans: read from main memory for consistency results
 
+Q) Transient keyword?
+Ans:it will used for prevention from serialization.
+
 Q)Atomic
 Ans: atomic ensures indivisibility (the operation itself cannot be interrupted).
 
-Q) Serlization used uuid to serlized and deserlized if any filed is missing but serlized id match it will ignore none
+Q) Serialization used uuid to serlized and deserlized if any filed is missing but serlized id match it will ignore none
 matching keys.
-Externalizable --> customized Serlizations
+Externalizable --> customized Serializations
+
+Q) co-varient data type in overrideing applicable in objects only.
+
+q) coupling -> a degree of depandancy between components is called coupling
+
+Q) cohension -> every compnet we provide well define stucture.
+
+Q) collections--> class vs collection --> interface
+
+Q) List ->order preserved Set-> order not preserved and duplicate not allowed
+ Map--> key,value
+ Hashing datastuture --> HashTable,HashMap,HashSet,ConcurrentHashMap
+ SortedSet -> soreted order and duplicates not allowed
+
+Q)Navigable set?
+And navigation purpose
+
+Q) sorting and searching?
+Collator is an abstract class in Java used for locale-sensitive string comparison (sorting and searching).
+RuleBasedCollator is a concrete subclass of Collator that lets you define custom collation rules.
+
+Q) Garbage collector?
+Ans: System.gc() by RunTime class RunTime r = RunTime.getRunTime() fee memory, available memory,total memory,gc
+finalize() --> clean up activities.
+
+Q) Isolation of island in GC?
+Ans: Island of isolation all references are internal references.
+
+Q) Memory leak --> when object not used and put in memory it is called memory leak
+Virtual Machine --> A machine works like a physical machine called virtual machine.
+JVM,JDK,JRE
+classloader --> Loading,Linking,initialization.
+
+Q)ClassNotFoundException vs NoClassDefFoundError?
+Ans : ClassNotFoundException occurs when a class is requested dynamically but not found (load.class)
+while NoClassDefFoundError occurs when a class was present at compile time but missing at runtime.
+
+
+Q) Consumer prdocer problem solved by blockingqueue.
+
+Q) HMAC --> Hash based Message Authentication Code
+MD --> message digest
+
+Q) Locks and Moniters?
+Ans: Locks (Mutex) Monitors ->>Every Java object can act as a monitor. intrinsic locks (object-level locks).
+

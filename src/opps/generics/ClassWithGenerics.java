@@ -1,6 +1,13 @@
 package opps.generics;
 
-public class ClassWithGenerics {
+// use of generics is type safety and resolved type casting problem.
+// <T> it is a type parameter.
+// class Test<T> and class Test<T extends X>
+// class Test<T extends Number & Runnable> valid
+// class Test<T extends String & Number> invalid one than one class we cannot extends in java
+// class Test<T extends Runnable & Serializable
+// method level generic.
+ public class ClassWithGenerics {
     public static void main(String[] args) {
         MyCustomHashMap<Integer,String> myCustomHashMap=new MyCustomHashMap<>();
         myCustomHashMap.setObject(10);
@@ -16,6 +23,10 @@ public class ClassWithGenerics {
 
         // Lower bounded wildcard
         // Class <? super Demo >
+
+        // generics methods
+        // methodOne(ArrayList<> String l)
+
     }
 }
 

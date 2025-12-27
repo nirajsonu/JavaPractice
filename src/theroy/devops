@@ -1,0 +1,51 @@
+Cluster → Nodes → Pods → Containers
+Cluster
+   └── Control Plane (API Server, etcd, Scheduler, Controller Manager)
+   └── Worker Nodes
+         └── Kubelet, Kube-proxy, Container Runtime
+               └── Pods
+                     └── Containers
+Q) git pull vs git fetch?
+Ans:
+
+Q) git rebase vs git merge?
+Ans:
+
+Q)Zipkin is a distributed tracing system
+Ans:
+
+Q) jmeter,virtual vm,micrometer,grafana,new relic
+
+Q)Elastic search?
+
+
+Q) Graphql vs rest?
+Ans
+
+Q) GRPC
+
+Q) Web socket?
+
+Q) Server side events?
+
+Q) Webhook?
+
+
+Q)CI :code push and check the quality of the code, compiling, testing,syntax analysis, code structure,naming connections.
+  CD updates to the user:Jenkins,go,travis CI,github actions, circle ci,bitrise
+  Bitrise.
+
+Q)AI Model?
+Ans : GPT - 5 ,claude AI,git co-pilot,gemini,
+
+Q) Elastic search?
+Ans : for faster search.
+
+Q) Docker Compose?
+Ans:
+
+Q) Lamda function?
+Ans : 15 min
+
+Q) Blue green development?
+Ans:

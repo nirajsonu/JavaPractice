@@ -11,14 +11,14 @@ Hibernate opps.annotations
 @ManyToMany-->
 @ManyToOne -->
 @ManyToMany -->
-@Transactional-->
+@Transactional--> for ACID property
 @Formula("salary * 12")
 private double annualSalary;
 
 
 CrudRepository vs JPARepository?
 Crud --> it has only crud methods.
-JPA -> crud + sorting and seraching. Pageable Interface ,page size,total pages
+JPA -> crud + sorting and searching. Pageable Interface ,page size,total pages
 
 
 
@@ -50,4 +50,4 @@ Q) 2 level cache in hibernate?
 Ans :Eh cache
 
 Q)DataAccessException?
-Ans: Exception occuring accessing the data.
+Ans: Exception occurring accessing the data.

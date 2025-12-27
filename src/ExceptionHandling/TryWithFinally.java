@@ -16,9 +16,9 @@ public class TryWithFinally{
         } finally {
             System.out.print("Finally block execute always execute....");
         }*/
-        System.out.println(5+5+"Java"+5+5);
+       // System.out.println(5+5+"Java"+5+5);
 
-        try {
+       /* try {
             System.out.println("A");
             shoeName();
             System.out.println("B");
@@ -26,9 +26,21 @@ public class TryWithFinally{
             System.out.println("C");
         } finally {
             System.out.println("D");
+        }*/
+
+        int test = TryWithFinally.test();
+        System.out.println(test);
+    }
+
+    // always win finally block
+    public static int test() {
+        try {
+            return 0;
+        } catch (Exception e) {
+            return 2;
+        } finally {
+            return 1;
         }
-
-
     }
 
     private static void shoeName() {

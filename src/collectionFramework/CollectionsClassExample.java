@@ -6,7 +6,7 @@ public class CollectionsClassExample {
 
     //Collections is a utility class used to perform actions of any collection object
     //Collections sorting for List interface sort.
-    //Collection class defines several utility methods for collection objects like sorting, searching,reversing,etc.
+    //Collection class defines several utility methods for collection objects like sorting, searching, reversing,etc.
     public static void main(String args[]){
         List<Integer> list=new ArrayList<>();
        // list.add(null);
@@ -15,9 +15,9 @@ public class CollectionsClassExample {
         list.add(8);
         list.add(34);
         //With a collection type
-        //list should contain null otherwise we will get null pointer execution.
+        //list should contain null, otherwise we will get null pointer execution.
         //to sort based on default natural sorting order.in this case list should complementary contain
-        // homogenous and comparable objects otherwise we will get run time exception class cast exception.
+        // homogenous and comparable objects, otherwise we will get run time exception class cast exception.
        // Collections.sort(list);
 
         System.out.println("After Sorting--"+list);

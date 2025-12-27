@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Practicc {
@@ -34,7 +35,7 @@ public class Practicc {
         // last word length in string
         String name = "Neeraj Kumar Keshri";
         String words[] = name.split( " ");
-       // System.out.println(words[words.length-1].length());
+         System.out.println(words[words.length-1].length());
 
         // chars will give unicode value of each chanter.
         name.chars().mapToObj(x->(char)x).filter(w->w =='a').collect(Collectors.toList());
@@ -138,7 +139,26 @@ public class Practicc {
         String fruitsArray[]={"apple", "banana", "pineapple", "apple", "orange", "orange"};
         LinkedHashMap<String, Long> fruitsMap = Arrays.stream(fruitsArray).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
         System.out.println(fruitsMap);
+
+        Comparator.comparing(String::length);
+
+        List<Apple> apples = new ArrayList<>();
+        apples.add(new Apple("RED", 100));
+        apples.add(new Apple("BLUE", 200));
+        apples.add(new Apple("Green", 200));
+        Predicate<Apple> greenApplePredicate = Apple::isGreenApple;
+
+        apples.add(new Apple("RED",100));
+        apples.add(new Apple("BLUE",200));
+        apples.add(new Apple("Green",200));
+        apples.stream().filter(greenApplePredicate).collect(Collectors.toList()).forEach(System.out::println);
     }
+
+
+
+
+
+
 
     public static int lengthOfLastWord(String s) {
         int len=0;
@@ -155,6 +175,51 @@ public class Practicc {
     }
 
 
+}
+
+class  Apple{
+    private String color;
+    private int weight;
+
+    public Apple(String color, int weight) {
+        this.color = color;
+        this.weight = weight;
+    }
+
+    public static boolean isGreenApple(Apple a){
+        if(a.getColor().equals("Green"))
+            return true;
+        return false;
+    }
+
+    public static boolean isHeavyApple(Apple apple){
+        if(apple.getWeight()>150) return true;
+        return false;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Apple{" +
+                "color='" + color + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }
 
 

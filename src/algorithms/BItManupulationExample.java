@@ -22,5 +22,29 @@ public class BItManupulationExample {
         }
         System.out.println("Unique element = " + result);
 
+
+        // left shift op means multiplying by 2 ka power 1 = 12 * 2 ^ 1  = 12
+        int number1 = 12;
+        int number2 = 16;
+        System.out.println(number1<<1);
+
+        // right shift operator divide by 2 ka power 1 = 12/2 =6
+        System.out.println(number1>>1);
+
+        // and the operator means both bits one then one otherwise 0
+        System.out.println(number1 & number2);
+
+        // or any one bit 1 then 1 otherwise 0
+        System.out.println(number1 | number2);
+
+        //NOT operator flips all bits (0→1, 1→0), and mathematically equals -(x + 1) in Java.
+        System.out.println(~number2);
+
+        //means shift right and fill with 0 — no sign protection.
+        System.out.println(number2>>>1);
+
+        if (number2 > 0 && (number2 & (number2 - 1)) == 0) {
+            System.out.println("Power of two!");
+        }
     }
 }

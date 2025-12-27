@@ -31,12 +31,4 @@ public class Subset {
            System.out.print("}");
         }
     }
-
-    private static void getPairs(int[] a,int position) {
-        if (position == a.length) return;
-        for(int j=position+1;j<a.length;j++){
-            System.out.println(a[position]+","+a[j]);
-        }
-        getPairs(a,position+1);
-    }
 }

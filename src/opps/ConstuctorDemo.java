@@ -1,9 +1,11 @@
 package opps;
 
+// super() or this() either super or this  constutor call
+// super, this keyword
+// same name as class name and no return type needed
 public class ConstuctorDemo {
     private String name;
     private String city;
-
 
     //Parametrized Constructor
     ConstuctorDemo(String name,String city){

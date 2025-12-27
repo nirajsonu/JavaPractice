@@ -3,13 +3,18 @@ Springboot
 Spring + configurations + tomcat
 tomcat comes with spring boot web dependency
 
+Servers
+------------
+jboss,nginx,WebLogic,Glassfish
+
 Most commonly used opps.annotations
 ----------------------------------
 @SpringbootApplication
 --------------------------
-main method of springboot project combination of @Configuration -->
-@EnableAutoConfiguration --> DispatherServlet,ViewResolvers.
-@ComponentScan -->
+main method of springboot project combination of
+@Configuration --> source of bean definitions.
+@EnableAutoConfiguration --> DispatcherServlet,ViewResolvers.
+@ComponentScan --> Scans the package (and subpackages) of the class it’s declared on.
 @Component-->For making class bean spring ioc controller used create an object. class level
 @Service-->For Business logic,
 @Repository-->for Dao layer
@@ -18,7 +23,6 @@ main method of springboot project combination of @Configuration -->
 @Rest controller --> make a method as controller with @ResponseBody. JSON/XML
 @Autowired--> for making object through dependency injections
 @RequestMapping--> to make end point url
-@Putmapping---> all resource update
 @PostMapping--> to create a new resource
 @DeleteMapping--> to delete a new resource
 @GetMapping--> to fetch the data
@@ -37,6 +41,7 @@ main method of springboot project combination of @Configuration -->
 @Scope -> to define scope of the bean
 @ExceptionHandler -->
 @ControllerAdvice -->
+@RestControllerAdvice --> @ControllerAdvice + @ResponseBody
 ----------------------------------------
 Bean scope
 --------------
@@ -44,7 +49,7 @@ singleton --> used to create only one object
 prototype--> every time create one object.
 session-->bean per session HTTP session.
 request-->bean per request HTTP request.
-global session-->
+global session-->One bean instance per global HTTP session (used in Portlet environments, not standard web apps).
 application --> application context.
 
 
@@ -60,8 +65,6 @@ JWT token (Bearer token)
 ------------------------------
 Header,payload,signature and encoding base 64 with expiry and signature.
 body --> claims(Roles),some extra information.
-
-
 
 logging
 ----------
@@ -89,7 +92,7 @@ Microservices
 -----------------
 Load balancing --> client side and server side balancing
 Service registry --> registry of all microservices.
-Service discovery -->
+Service discovery -->allows services to find and communicate with each other without hardcoding addresses
 Api gateway --> predicates all the request come to api gateway and then redirect to another microservices.
 oAuth2 along with proxy ,role based authorization and jwt authentication.
 open id connect (OIDC) + OAuth2 Okta server.
@@ -98,7 +101,7 @@ communication in Microservices
 ------------------------------
 Synchronize
 ----------------
-Rest temple open field
+Rest temple  field clients
 ASynchronize
 --------------
 Kafka,Rabbit MQ,Active MQ.
@@ -129,6 +132,17 @@ DSL language gradle is faster than maven.
 
 Q) what is kafka?
 Ans:It is distributed pub sub based event driven message broker.
+kafkaTemplate.send(topic, message);--> Producer
+@KafkaListener  --> Consumer side.
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: my-group   //group.id = consumer group identity
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 
 Q) Actuator in Springboot?
@@ -140,3 +154,47 @@ spring.main.lazy-initialization=true
 
 2)parallel maven build
 mvn clean install -T 1C  one thread per core.
+
+Q) Circular dependency?
+Ans:@Lazy annotation → delays bean initialization until needed.
+    @Autowired with setter injection → avoids constructor loops.
+    @DependsOn annotation → explicitly defines initialization order.
+
+@ConditionalOnClass --> Loads config only if a class exists on the classpath.
+@ConditionalOnMissingBean --> only if no bean of that type/name exists
+
+Q) Redis
+
+Q) Session based auth,JWT based,HMAC Authentication?
+Q) Circuit breaker test though activator
+actuvator/
+
+Q) Retry api using Resilience 4j?
+
+Q) momonto pattern?
+FlyWeight pattern?
+Q) HATEOAS
+Q) jetty,Undertow,tomcat,glassfish?
+
+
+Q)  @TransactionalEventListener
+Ans: before transaction ,after transaction
+
+Q) Saga Design pattern?
+it is used on Distribution systems.
+Ans: choreography : event driven used by kafka
+orchestration : a central orchestration service handling the failures and logic
+
+Q) @Order(HIGHEST_PRECEDENCE) to create bean fastly
+@Component
+@Order(Ordered.HIGHEST_PRECEDENCE)
+
+Q) Optimistic vs Pessimistic Locking?
+Ans: Optimistic: @version no lock in read High performance.
+Pessimistic Locking: @Lock(PESSIMISTIC_Write) : wait for other thread to complete transaction strong consistency.
+
+Q) Microservices design patterns?
+Ans:Strangler pattern, SAGA pattern---> Sequence of local transactions ,CQRS-->Strangler,API Gateway
+
+Q) Spring Cloud Gateway, Eruka Server,Config Server?
+Ans:

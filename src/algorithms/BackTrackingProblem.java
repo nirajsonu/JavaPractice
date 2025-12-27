@@ -12,7 +12,21 @@ public class BackTrackingProblem {
     private static void generateSubsets() {
         String set ="abc";
         int index =0;
-        getAllSubSetOfString(set,index,"");
+       // getAllSubSetOfString(set,index,"");
+        getAllCombinations(set,"");
+    }
+
+    private static void getAllCombinations(String str, String current) {
+        if(str.length() == 0){
+            System.out.println(current);
+            return;
+        }
+
+        for(int i=0;i<str.length();i++){
+            char c = str.charAt(i);
+            String remaining = str.substring(0,i)+ str.substring(i+1);
+            getAllCombinations(remaining,current+c);
+        }
     }
 
     private static void getAllSubSetOfString(String str, int index, String current) {

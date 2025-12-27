@@ -447,13 +447,35 @@ pg_inherits
 
 window functions
 ------------------
-Rank() and denceRank()
+Rank() and DenceRank()
 
+EXISTS
+-------
+SELECT c.name
+FROM customers c
+WHERE EXISTS (
+    SELECT 1
+    FROM orders o
+    WHERE o.customerId = c.id
+);
 
+EXISTS (SELECT 1 ...)	At least one row exists
+NOT EXISTS (SELECT 1 ...)	No rows exist
+-------------------------------------
 
-
-
-
+Self join = same table with different aliases
+Always use two aliases
+---------------------------------
+SELECT e.name AS "Employee"
+FROM employee e
+JOIN employee m
+ON e.managerId = m.id
+WHERE e.salary > m.salary;
+-------------------------------------
+CTE
+-------------
+With
+With Recursion
 
 
 
